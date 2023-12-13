@@ -1,0 +1,7 @@
+batchimport.form:
+  path: '/custom-batch-form'
+  defaults:
+    _form: '\Drupal\batchimport\Form\BatchForm'
+    _title: 'Custom Batch Content Form'
+  requirements:
+    _permission: 'access content'

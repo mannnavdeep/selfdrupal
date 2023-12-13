@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * Implements hook_help().
+ */
+function batchimport_help($route_name, $route_match) {
+  switch ($route_name) {
+    case 'help.page.batchimport':
+      return '<p>' . t('A custom module that creates a custom menu.') . '</p>';
+  }
+}
+
+function batchimport_menu() {
+  $items = [];
+
+  // Create a menu item for your custom page.
+  $items['custom-menu'] = [
+    'title' => 'Custom Menu',
+    'description' => 'Description of the custom menu',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => ['batchimport_form'],
+    'access arguments' => ['access content'],
+    'type' => MENU_SUGGESTED_ITEM,
+  ];
+
+  return $items;
+}
+
+/**
+ * Form function for the custom menu page.
+ */
+function batchimport_form($form, &$form_state) {
+  $form['content'] = [
+    '#markup' => '<p>This is the content of the custom menu page.</p>',
+  ];
+
+  return $form;
+}
